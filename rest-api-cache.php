@@ -21,7 +21,9 @@ function rac_fetch_cache( $result, $server ) {
 	if ( 'GET' != $server->method ) {
 		return $result;
 	}
-	$cache_key	 = md5( $_SERVER[ 'REQUEST_URI' ] );
+	$https		 = ($_SERVER[ 'HTTPS' ]) ? 'https://' : 'http://';
+	$url		 = $https . $_SERVER[ 'HTTP_HOST' ] . $_SERVER[ 'REQUEST_URI' ];
+	$cache_key	 = md5( $url );
 	$result		 = wp_cache_get( $cache_key, 'rac' );
 	// Check for the 'cache_bust=1' query string.
 	$cache_bust	 = filter_input( INPUT_GET, 'cache_bust', FILTER_VALIDATE_BOOLEAN );
