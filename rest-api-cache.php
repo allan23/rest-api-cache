@@ -5,7 +5,7 @@
  * Description: Cache WP REST API responses.
  * Version:     0.0.1
  * Author:      Allan Collins
- * Author URI:  http://www.allancollins.net/
+ * Author URI:  http://10up.com/
  * License:     GPLv2 or later
  */
 add_filter( 'json_pre_dispatch', 'rac_fetch_cache', 10, 2 );
